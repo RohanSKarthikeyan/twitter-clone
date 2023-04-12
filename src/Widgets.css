@@ -1,0 +1,35 @@
+.widgets{
+    flex: 0.3;
+    max-width: 1000px;
+}
+.wigetSearch{
+    display: flex;
+    align-items: center;
+    background-color: var(--twitter-background);
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.searchInput{
+    border: none;
+    background-color: var(--twitter-background);
+    color: var(--twitter-background);
+}
+
+.widgetSearch > Search{
+    color: gray;
+}
+
+.widgetContainer{
+    margin-top: 15px;
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #f5f8fa; ;
+    border-radius: 20px;
+}
+
+.widgetContainer > h2{
+    font-size: 18px;
+    font-weight: 800;
+}
