@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './TweetBox.css';
 import { Avatar, Button } from '@mui/material';
 import db from './firebase';
-import { doc,setDoc } from 'firebase/firestore';
+import { doc,setDoc, collection,addDoc } from 'firebase/firestore';
 
 
 
@@ -10,15 +10,15 @@ import { doc,setDoc } from 'firebase/firestore';
 function TweetBox() {
   const [tweet,settweet] = useState(""); 
   const [image,setImage] =  useState("");
-  const [c,setc]=useState(0);
+
+
 
   const[displayName,setDisplay] = useState("");
   const[userName,setUser] = useState("");
   const[imageAdd,setImageAdd] = useState("");
 const sendTweet=(e)=>{
   e.preventDefault();
-  const docRef = doc(db,"posts","tweet"+c);
-  setc(c+1);
+  // const docRef = doc(db,"posts","tweet");
   const data = {
     displayName : displayName,
     userName: userName,
@@ -27,7 +27,7 @@ const sendTweet=(e)=>{
     verified : true,
     avatar : imageAdd
   }
-  setDoc(docRef,data);
+  addDoc(collection(db, "posts"), data);
 
 }
 
@@ -43,7 +43,7 @@ const [disabled, setDisabled] = useState(false);
     <input value={displayName} onChange={(e)=>{
             setDisplay(e.target.value)
         }} placeholder='Enter Display Name' disabled={disabled}/>
-      <input value={userName} onChange={(e)=>{
+        <input value={userName} onChange={(e)=>{
             setUser(e.target.value)
         }} placeholder='Enter User Name' disabled={disabled}/>
         <input value={imageAdd} onChange={(e)=>{
@@ -53,7 +53,6 @@ const [disabled, setDisabled] = useState(false);
         <div className='userSubmit'>
           <Button onClick={handleGameClick}>Submit</Button>
         </div>
-
     </div>
     <form>
         <div className='tweetInput'>

@@ -6,10 +6,6 @@ import './Widgets.css'
 
 function Widgets() {
   const [tweetId,setId] = useState("");
-  useEffect((e)=>{
-    const id = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-  setId(id.toString(16));
-  })
   return (
     <div className='widgets'>
     <div className='wigetSearch'>
@@ -18,7 +14,7 @@ function Widgets() {
     </div>
     <div className='widgetContainer'>
       <h2>What's Happneing</h2>
-      <TwitterTweetEmbed tweetId='1646107210202910721'/>
+      <TwitterTweetEmbed tweetId='1646036517088018432'/>
       <TwitterTimelineEmbed 
         sourceType="profile"
         screenName="_Chennaiyin_Guy"
